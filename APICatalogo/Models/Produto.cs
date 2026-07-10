@@ -1,11 +1,27 @@
-﻿namespace APICatalogo.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace APICatalogo.Models
 {
     public class Produto
     {
+        [Key]
         public int ProdutoId { get; set; }
+
+        [Required(ErrorMessage = "O nome do produto é obrigatório")]
+        [StringLength(80)]
         public string? Nome { get; set; }
+
+        [StringLength(300)]
+        [Required(ErrorMessage = "A descrição do produto é obrigatória")]
         public string? Descricao { get; set; }
+
+        [Required(ErrorMessage = "O preço do produto é obrigatório")]
+        [Column(TypeName = "decimal(10,2)")]
         public decimal Preco { get; set; }
+
+        [Required(ErrorMessage = "A imagem do produto é obrigatória")]
+        [StringLength(300)]
         public string? ImagemUrl { get; set; }
         public float Estoque { get; set; }
         public DateTime DataCadastro { get; set; }
