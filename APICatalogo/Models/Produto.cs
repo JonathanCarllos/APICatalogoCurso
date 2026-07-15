@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace APICatalogo.Models
 {
@@ -29,6 +30,8 @@ namespace APICatalogo.Models
         // Foreign Key
         public int CategoriaId { get; set; }
 
+
+        [JsonIgnore]
         // Navigation property
         public Categoria? Categoria { get; set; }
 
